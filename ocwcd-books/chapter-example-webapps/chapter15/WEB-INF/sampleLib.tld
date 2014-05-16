@@ -1,0 +1,120 @@
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+	"http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+
+	<!-- INFO ABOUT THIS LIBRARY -->
+		<tlib-version>1.0</tlib-version>
+		<jsp-version>1.2</jsp-version>
+		<short-name>chapter16</short-name>
+
+	<!-- URI FOR IMPLICIT MAPPING  -->		
+		<uri>http://www.manning.com/scwcd</uri>
+
+
+	<!-- REQUIRED TAG -->
+	<tag>
+		<name>required</name>
+		<tag-class>sampleLib.RequiredTag</tag-class>
+		<body-content>empty</body-content>
+		<description>Prints * wherever it occurs</description>
+	</tag>
+
+
+	<!-- GREET TAG -->
+	<tag>
+		<name>greet</name>
+		<tag-class>sampleLib.GreetTag</tag-class>
+		<body-content>empty</body-content>
+		<description>Prints Hello user! wherever it occurs</description>
+		<attribute>
+			<name>user</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<!-- IF TAG -->
+	<tag>
+		<name>if</name>
+		<tag-class>sampleLib.IfTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>condition</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<!-- LOOP TAG -->
+	<tag>
+		<name>loop</name>
+		<tag-class>sampleLib.LoopTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>count</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<!-- MARK TAG -->
+	<tag>
+		<name>mark</name>
+		<tag-class>sampleLib.MarkerTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>search</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+
+	<!-- IMPLICIT TAG -->
+	<tag>
+		<name>implicit</name>
+		<tag-class>sampleLib.ImplicitTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<name>attributeName</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>scopeName</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+
+
+	<!-- SWITCH TAG -->
+	<tag>
+		<name>switch</name>
+		<tag-class>sampleLib.SwitchTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>conditionValue</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+	<!-- CASE TAG -->
+	<tag>
+		<name>case</name>
+		<tag-class>sampleLib.CaseTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<name>caseValue</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+
+	<!-- DEFAULT TAG -->
+	<tag>
+		<name>default</name>
+		<tag-class>sampleLib.DefaultTag</tag-class>
+		<body-content>JSP</body-content>
+	</tag>
+
+</taglib>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/webapp_2_4.xsd" version="2.4">
+
+  <servlet>
+    <servlet-name>HTTPMethodTestServlet</servlet-name>
+    <servlet-class>chapter4.HTTPMethodTestServlet</servlet-class>
+    <init-param>                                           
+       <param-name>driverclassname</param-name>            
+       <param-value>sun.jdbc.odbc.JdbcOdbcDriver</param-value>
+    </init-param>                                         
+    <init-param>
+       <param-name>dburl</param-name>
+       <param-value>jdbc:odbc:MySQLODBC</param-value>
+    </init-param>
+
+  </servlet>
+
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>chapter4.LoginServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>AccountServlet</servlet-name>
+    <servlet-class>chapter4.AccountServlet</servlet-class>
+  </servlet>
+
+
+
+  <!-- 
+	Following mappings are required for Tomcat 4.1.x
+	<servlet-mapping> is explained in Chapter 5.
+    -->
+  <servlet-mapping>
+	<servlet-name>HTTPMethodTestServlet</servlet-name>
+	<url-pattern>/servlet/HTTPMethodTestServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+	<servlet-name>LoginServlet</servlet-name>
+	<url-pattern>/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+	<servlet-name>AccountServlet</servlet-name>
+	<url-pattern>/servlet/AccountServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>

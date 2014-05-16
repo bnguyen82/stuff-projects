@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/webapp_2_4.xsd" version="2.4">
+
+  <context-param>
+     <param-name>dburl</param-name>
+     <param-value>jdbc:odbc:MySQLODBC</param-value>
+  </context-param>
+  
+  <listener>
+      <listener-class>chapter6.MyServletContextListener</listener-class>
+  </listener>
+
+
+  <servlet>
+    <servlet-name>TestServlet</servlet-name>
+    <servlet-class>chapter6.TestServlet</servlet-class>
+  </servlet>
+
+<!-- Following mapping is required for Tomcat version 4.1.x onwards -->
+  <servlet-mapping>
+	<servlet-name>TestServlet</servlet-name>
+	<url-pattern>/servlet/TestServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>

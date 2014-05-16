@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/webapp_2_4.xsd" version="2.4">
+
+  <servlet>
+    <servlet-name>RedServlet</servlet-name>
+    <servlet-class>chapter5.TestServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>BlueServlet</servlet-name>
+    <servlet-class>chapter5.TestServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>GreenServlet</servlet-name>
+    <servlet-class>chapter5.TestServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>RedBlueServlet</servlet-name>
+    <servlet-class>chapter5.TestServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>ColorServlet</servlet-name>
+    <servlet-class>chapter5.TestServlet</servlet-class>
+  </servlet>
+
+<!-- Following mappings are required for Tomcat version 4.1.x -->
+  <servlet-mapping>
+	<servlet-name>RedServlet</servlet-name>
+	<url-pattern>/servlet/Redervlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+	<servlet-name>BlueServlet</servlet-name>
+	<url-pattern>/servlet/BlueServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+	<servlet-name>GreenServlet</servlet-name>
+	<url-pattern>/servlet/GreenServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+	<servlet-name>RedBlueServlet</servlet-name>
+	<url-pattern>/servlet/RedBlueServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+	<servlet-name>ColorServlet</servlet-name>
+	<url-pattern>/servlet/ColorServlet</url-pattern>
+  </servlet-mapping>
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+<!-- Mappings refered in chapter 5 -->
+   <servlet-mapping>
+      <servlet-name>RedServlet</servlet-name>
+      <url-pattern>/red/*</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>RedServlet</servlet-name>
+      <url-pattern>/red/red/*</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>RedBlueServlet</servlet-name>
+      <url-pattern>/red/blue/*</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>BlueServlet</servlet-name>
+      <url-pattern>/blue/</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>GreenServlet</servlet-name>
+      <url-pattern>/green</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>ColorServlet</servlet-name>
+      <url-pattern>*.col</url-pattern>
+  </servlet-mapping>
+
+</web-app>

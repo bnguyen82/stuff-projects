@@ -1,0 +1,15 @@
+div.well {
+	width:500px;
+	padding:20px;
+	border:20px;
+	margin:20px;
+}
+
+#groupButton {
+	width:400px;
+	padding:20px;
+}
+
+#myRow {
+	padding:20px;
+}

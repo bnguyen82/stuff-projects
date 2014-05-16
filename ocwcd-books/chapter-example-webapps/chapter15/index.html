@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Chapter15</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 5.50.4807.2300" name=GENERATOR></HEAD>
+<BODY>
+<CENTER>
+<H3>Chapter 15 - Using custom tags</H3></CENTER>
+Chapter 15 explains the following things:
+<OL>
+  <LI>The use of web.xml to map &lt;taglib-uri&gt; with &lt;taglib-location&gt; 
+  <LI>The use of the &lt;%@taglib&gt; directive to import a tag library in JSP 
+  pages 
+  <LI>The use of custom tags in JSP pages. 
+  <LI>The use of JSTL commands in JSP pages.</LI></OL>
+<H4>Note:</H4>The actual implementation of the tag handler classes is explained 
+in chapter 16. However, we have copied the same classes into the chapter15 web 
+application so that you can understand and practice the above objectives. 
+<H3>How to use the chapter15 web application</H3>There are four TLD files in 
+this web application. The contents of all four are the same but they either have 
+different names or they are in different locations so that you can test the 
+different ways of using the taglib directive. <BR><BR><PRE><TABLE border=1><TBODY><TR><TH align=left>To use this location</TH><TH align=left>Use this taglib directive</TH><TH align=left>Description</TH></TR><TR><TD><CODE>/sampleLib.tld</CODE></TD><TD width="57%"><CODE>&lt;%@ taglib prefix="test"<BR>uri="sampleLib.tld"%&gt;</CODE></TD><TD>As shown in listing 15.2</TD></TR><TR><TD><CODE>/mylibs/studyKit.tld</CODE></TD><TD width="57%"><CODE>&lt;%@ taglib prefix="test"<BR>uri="http://www.manning.com/studyKit" %&gt;</CODE></TD><TD>As mapped in web.xml (See listing 15.1)</TD></TR><TR><TD><CODE>/META-INF/taglib.tld</CODE> inside<BR><CODE>/WEB-INF/yourLibs/sample.jar</CODE></TD><TD width="57%"><CODE>&lt;%@ taglib prefix="test"<BR>uri="http://www.manning.com/sampleLib" %&gt;</CODE></TD><TD>As mapped in web.xml (See listing 15.1)</TD></TR><TR><TD><CODE>/WEB-INF/sampleLib.tld</CODE></TD><TD width="57%"><CODE>&lt;%@ taglib prefix="test"<BR>uri="http://www.manning.com/myTest" %&gt;</CODE></TD><TD>As mapped in web.xml (Read the explanation below)</TD></TR></TBODY></TABLE>
+</PRE>
+<P>We have added the following in web.xml file <PRE>	&lt;taglib&gt;
+		&lt;taglib-uri&gt;http://www.manning.com/myTest&lt;/taglib-uri&gt;
+		&lt;taglib-location&gt;<B>sampleLib.tld</B>&lt;/taglib-location&gt;
+	&lt;/taglib&gt;
+</PRE>Since, the location <CODE>sampleLib.tld</CODE>, is a non-root relative 
+path, the JSP engine will prepend it with <CODE>/WEB-INF/</CODE> and thus use 
+<CODE><B>/WEB-INF/sampleLib.tld</B></CODE> 
+<P></P><BR>
+<H3>Trying the combinations</H3>
+<P><A 
+href="addressInput.jsp">addressInput.jsp</A> is the JSP page as shown in listing 15.2. It uses the 
+first location:<BR>&nbsp;&nbsp;&nbsp;<CODE>&lt;%@ taglib prefix="test" 
+uri="sampleLib.tld" %&gt; </CODE>. <BR>
+</P>Try out all the other combinations of the TLD locations and the <FONT face=Courier>uri</FONT> attribute of the taglib 
+directive to get familiar with all types of usages. To do that, 
+just open the addressInput.jsp file and modify the taglib directive as shown in 
+the table above. 
+<P><A href="Tokens.jsp">Tokens.jsp</A> is a very simple JSP shown in listing 15.3. It uses the Java
+Standard Tag Library to display a list of Token values. It accesses the JSTL with the following statement:<BR>&nbsp;&nbsp;&nbsp;
+<CODE>&lt;%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %&gt; </CODE>. <BR></P>
+<B>Remember:</B> In order to use the JSTL, you need to copy jstl.jar and standard.jar from 
+<BR>C:\jakarta-tomcat-5.0.25\webapps\jsp-examples\WEB-INF\lib<BR>and add them to a lib directory within WEB-INF.
+</BODY></HTML>

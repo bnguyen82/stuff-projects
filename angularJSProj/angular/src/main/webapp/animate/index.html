@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+
+	<head>
+	    <title></title>
+	    <!-- Bootstrap CSS -->
+	    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="transition.css" rel="stylesheet">
+	</head>
+	
+	<body >
+		<div ng-app="app"> 
+			<a href="#/view1">View 1</a> | <a href="#/view2">View 2</a>| <a href="#/view3">View 3</a>
+		
+		    <div ng-controller="AnimateController">
+		        <ul>
+		            <li ng-repeat="anim in animations">
+		                <input type="radio" name="animation" ng-model="$parent.animation" value="{{anim}}" >{{anim}} animation</input>
+		            </li>
+		        </ul>Selected animation: {{animation}}
+		        <hr/>
+		        <div ui-view ng-animate=" 'view' ">Loading...</ng-view>
+		    </div>
+		    <hr/>
+		</div>
+		
+		<!-- App Script -->
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"> </script>
+		<script src="angular-ui-router.js"> </script>
+		<script src="animate.js"> </script>
+	</body>
+	
+</html>

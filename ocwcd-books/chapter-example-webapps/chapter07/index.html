@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>chapter07</TITLE>
+</HEAD>
+<BODY>
+<center><h3> Chapter 7 - Filters</h3></center>
+This chapter explains how to use filters to pre-process a request and to post-process a response.
+
+<OL>
+  <LI>The HelloWorldFilter explained in listing 7.1 is configured in the web.xml as follows:
+<pre>
+   &lt;filter&gt;
+      &lt;filter-name&gt;HelloWorld&lt;/filter-name&gt;
+      &lt;filter-class&gt;chapter07.HelloWorldFilter&lt;/filter-class&gt;
+   &lt;/filter&gt;
+   
+   &lt;filter-mapping&gt;
+      &lt;filter-name&gt;HelloWorld&lt;/filter-name&gt;
+      &lt;url-pattern&gt;/filter/*&lt;/url-pattern>
+   &lt;/filter-mapping&gt;
+</pre>  
+  Any request that matches the pattern /filter/* - for example, 
+  <A href="/chapter07/filter/hello">/chapter07/filter/hello</A> - invokes the HelloWorldFilter.
+<br>&nbsp;
+  <LI>For experimenting with filter chaining, we have configured multiple filters as explained in section 7.3.3. 
+  You should try out all the URLs mentioned in the section and see what filters are invoked.
+<br>&nbsp;
+  </li>
+  <li>
+  The TextToHTMLFilter explained in section 7.4 is configured as follows:
+  <pre>
+   &lt;filter&gt;
+      &lt;filter-name&gt;TextToHTML&lt;/filter-name&gt;
+      &lt;filter-class&gt;chapter07.TextToHTMLFilter&lt;/filter-class&gt;
+   &lt;/filter&gt;
+
+   &lt;filter-mapping&gt;
+      &lt;filter-name&gt;TextToHTML&lt;/filter-name&gt;
+      &lt;url-pattern&gt;*.txt&lt;/url-pattern&gt;
+   &lt;/filter-mapping&gt;
+  
+  </pre>
+  Therefore, all the text files are sent with a background image. You can view a  
+  sample text file at  <A href="/chapter07/ReportJanFeb.txt">/chapter07/ReportJanFeb.txt</A>
+  </LI>
+</OL>
+</BODY></HTML>

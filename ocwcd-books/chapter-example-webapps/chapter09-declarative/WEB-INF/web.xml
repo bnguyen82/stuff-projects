@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/webapp_2_4.xsd" version="2.4">
+
+ <servlet>
+  <servlet-name>DeclarativeSecureServlet</servlet-name>
+  <servlet-class>chapter9.DeclarativeSecureServlet</servlet-class>
+ </servlet>
+
+<!-- Following mapping is required for Tomcat version 4.1.x onwards -->
+  <servlet-mapping>
+	<servlet-name>DeclarativeSecureServlet</servlet-name>
+	<url-pattern>/servlet/DeclarativeSecureServlet</url-pattern>
+  </servlet-mapping>
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXX  -->
+
+ <security-constraint>
+
+   <web-resource-collection>
+      <web-resource-name>declarativetest</web-resource-name>
+      <url-pattern>/servlet/DeclarativeSecureServlet</url-pattern>
+      <http-method>POST</http-method>
+   </web-resource-collection>
+
+   <auth-constraint>
+      <role-name>supervisor</role-name>
+   </auth-constraint>
+
+   <user-data-constraint>
+      <transport-guarantee>NONE</transport-guarantee>
+   </user-data-constraint>
+
+ </security-constraint>
+
+ <login-config>
+   <auth-method>BASIC</auth-method>
+
+   <realm-name>sales</realm-name>
+
+   <form-login-config>
+     <form-login-page>/formlogin.html</form-login-page>
+     <form-error-page>/formerror.html</form-error-page>
+   </form-login-config>
+
+ </login-config>
+
+ <security-role>
+   <role-name>supervisor</role-name>
+ </security-role>
+
+</web-app>

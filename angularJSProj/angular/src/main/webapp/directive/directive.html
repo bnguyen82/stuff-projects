@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="zippyModule">
+  <head>
+    <script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="style.css"></link>
+  </head>
+  <body>
+  
+	 <div ng-controller="Ctrl1">
+		<div contentEditable="true" ng-model="content" title="Click to edit">Some</div>
+		<pre>model = {{content}}</pre>
+	 
+	 </div>  
+	 
+    <div ng-controller="Ctrl3">
+      Title: <input ng-model="title"> <br>
+      Text: <textarea ng-model="text"></textarea><br>
+
+      Title copy: <input ng-bind="isTitleChanged(title)"> <br>
+      <hr>
+      <div class="zippy" zippy-title="Details: {{title}}...">{{text}}</div>
+      
+      <hr>
+      Date format: <input ng-model="format"> <hr/>
+      Current time is: <span my-current-time="format"></span>
+    </div>
+    
+    <script src="directive.js"></script>
+    <style type="text/css">
+      div[contentEditable] {
+        cursor: pointer;
+        background-color: #D0D0D0;
+      }
+    </style>
+  </body>
+</html>

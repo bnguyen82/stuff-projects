@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Chapter06</title>
+</head>
+
+<body>
+<center><h3> Chapter 06 - The Servlet Container Model </h3></center>
+In this web application, we show the features of the servlet container model that allow you to specify the initialization parameters and listener interfaces for a web application.
+<ol>
+<li><a href="/chapter06/servlet/TestServlet">TestServlet</a> displays all the application initialization parameters and 
+their values on the browser. In the web.xml we have configured one initialization parameter using the following tags:<br>
+<pre>
+  &lt;context-param&gt;
+     &lt;param-name&gt;dburl&lt;/param-name&gt;
+     &lt;param-value&gt;jdbc:odbc:MySQLODBC&lt;/param-value&gt;
+  &lt;/context-param&gt;
+</pre><br>
+Try adding your own parameters in web.xml and see the result.
+<b>Remember</b>: You will have to restart Tomcat for the new parameters to be available in the servlet context.
+<br>&nbsp;
+<li>MyServletContextListener, which implements ServletContextListener, is configured in the deployment 
+descriptor using the following tags:<br>
+<pre>
+  &lt;listener&gt;
+      &lt;listener-class&gt;chapter6.MyServletContextListener&lt;/listener-class&gt;
+  &lt;/listener&gt;
+</pre>
+It prints debug messages on the console when the context is created or destroyed. 
+You'll see these messages when Tomcat starts or shuts down.<br>
+Try writing your own class that implements the ServletContextListener interface and prints some messages using System.out.println() on the console. 
+Then add that as a listener in web.xml and see the result on the console when Tomcat starts up or shuts down.
+
+</ol>
+
+</body>
+</html>

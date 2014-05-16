@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Chapter08</title>
+</head>
+
+<body>
+<center><h3> Chapter 08 - Sessions</h3></center>
+This web application shows how to receive session related events and how to implement session support if the browser has disabled cookies.
+<ol>
+<li>SessionCounter class implements HttpSessionListener and is configured in the web.xml.
+<a href="/chapter08/servlet/TestServlet">TestServlet</a> creates a session and prints out the number of sessions 
+with the help of SessionCounter on the Tomcat console. You'll see the debug message when you click on this link for the first time.
+For all subsequent clicks, no new session is created, therefore no message is printed.
+<br>
+<br>
+To create another session, close all your browser windows (but do not shutdown the Tomcat server). 
+Open a new browser window, go to http://localhost:8080/chapter08 and then click on this link again. 
+This time it will create a new session.
+<br>&nbsp;
+<li>
+<a href="/chapter08/servlet/URLReWriterServlet">URLReWriterServlet</a> shows the usage of HttpServletResponse.encodeURL(). 
+It is used to force the servlet container to append the SESSIONID to the URL, whenever the cookies are turned off in the browsers.
+To turn off cookies in your browser, go to Tools -> Internet Options -> Security -> Custom Level.<br>
+After you turn off cookies, click on the above link to URLReWriterServlet.
+<br>
+
+
+</ol>
+
+</body>
+</html>

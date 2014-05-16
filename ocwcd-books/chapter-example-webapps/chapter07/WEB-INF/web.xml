@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/webapp_2_4.xsd" version="2.4">
+
+   <filter>
+      <filter-name>HelloWorld</filter-name>
+      <filter-class>chapter07.HelloWorldFilter</filter-class>
+   </filter>
+
+   <filter>
+      <filter-name>TextToHTML</filter-name>
+      <filter-class>chapter07.TextToHTMLFilter</filter-class>
+   </filter>
+
+<!-- Begin: Filters for understanding filter chaining -->
+   <filter>
+      <filter-name>FilterA</filter-name>
+      <filter-class>chapter07.TestFilter</filter-class>
+   </filter>
+   <filter>
+      <filter-name>FilterB</filter-name>
+      <filter-class>chapter07.TestFilter</filter-class>
+   </filter>
+   <filter>
+      <filter-name>FilterC</filter-name>
+      <filter-class>chapter07.TestFilter</filter-class>
+   </filter>
+   <filter>
+      <filter-name>FilterD</filter-name>
+      <filter-class>chapter07.TestFilter</filter-class>
+   </filter>
+   <filter>
+      <filter-name>FilterE</filter-name>
+      <filter-class>chapter07.TestFilter</filter-class>
+   </filter>
+
+<!-- End: Filters for understanding filter chaining  -->
+
+
+
+   <filter-mapping>
+      <filter-name>TextToHTML</filter-name>
+      <url-pattern>*.txt</url-pattern>
+   </filter-mapping>
+
+   <filter-mapping>
+      <filter-name>HelloWorld</filter-name>
+      <url-pattern>/filter/*</url-pattern>
+   </filter-mapping>
+
+<!-- Begin: Filter mappings for understanding filter chaining  -->
+   <!-- associate FilterA and FilterB to RedServlet -->
+   <filter-mapping>
+      <filter-name>FilterA</filter-name>
+      <servlet-name>RedServlet</servlet-name>
+   </filter-mapping>
+   <filter-mapping>
+      <filter-name>FilterB</filter-name>
+      <servlet-name>RedServlet</servlet-name>
+   </filter-mapping>
+
+   <!-- associate FilterC to a request matching /red/* -->
+   <filter-mapping>
+      <filter-name>FilterC</filter-name>
+      <url-pattern>/red/*</url-pattern>
+   </filter-mapping>
+
+   <!-- associate FilterD to a request matching /red/red/* -->
+   <filter-mapping>
+      <filter-name>FilterD</filter-name>
+      <url-pattern>/red/red/*</url-pattern>
+   </filter-mapping>
+
+   <!-- associate FilterE to a request matching *.red -->
+   <filter-mapping>
+      <filter-name>FilterE</filter-name>
+      <url-pattern>*.red</url-pattern>
+   </filter-mapping>
+
+<!-- End: Filter mappings for understanding filter chaining  -->
+
+   <servlet>
+      <servlet-name>RedServlet</servlet-name>
+      <servlet-class>chapter07.RedServlet</servlet-class>
+   </servlet>
+
+   <servlet-mapping>
+      <servlet-name>RedServlet</servlet-name>
+      <url-pattern>/red/red/red/*</url-pattern>
+   </servlet-mapping>
+
+   <servlet-mapping>
+      <servlet-name>RedServlet</servlet-name>
+      <url-pattern>*.red</url-pattern>
+   </servlet-mapping>
+
+<!-- Following mapping is required for Tomcat version 4.1.x onwards 
+	to access /servlet/RedServlet (Not needed for Filter example.) -->
+
+  <servlet-mapping>
+	<servlet-name>RedServlet</servlet-name>
+	<url-pattern>/servlet/RedServlet</url-pattern>
+  </servlet-mapping>
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+</web-app>

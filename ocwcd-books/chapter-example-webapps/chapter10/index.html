@@ -1,0 +1,78 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>Chapter10</title>
+
+
+<script language='JavaScript'>
+function hitThrice()
+{
+	for (i=0;i<3;i++)
+	{
+	    var name = "hit"+i;
+		var left = i*100;
+		var top  = i*100;
+		document.open("threadSafety.jsp",name, "height=300, width=500, top="+top+",left="+left);
+	}
+	document.target="self";
+}
+</script>
+
+</head>
+
+<body>
+<center><h3> Chapter 10 - The JSP technology model - The basics</h3></center>
+<p>
+This application contains the following components discussed in chapter 10.
+Clicking on the links below will execute the JSP pages on the server.
+</p>
+
+<table border='1'>
+
+<tr>
+	<th align='left'>JSP Page</td>
+	<th align='left'>Description</td>
+	<th align='left'>Explained in</td>
+</tr>
+
+<tr>
+	<td><A HREF="counter.jsp">counter.jsp</A></td>
+	<td>Shows the use of various JSP syntax elements</td>
+	<td>Section 10.1, Listing 10.1</td>
+</tr>
+
+<tr>
+	<td><A HREF="persistent_counter.jsp">persistent_counter.jsp</A></td>
+	<td>Explains JSP life cycle methods- <CODE>jspInit()</CODE>, <CODE>_jspService()</CODE>, and <CODE>jspDestroy()</CODE></td>
+	<td>Section 10.2.4, Listing 10.2</td>
+</tr>
+
+<tr>
+	<td><A HREF="hello.jsp">hello.jsp</A></td>
+	<td><B>Throws an exception</B> because the name parameter is not passed. The exception is caught by errorHandler.jsp that prints the appropriate message. This example shows how to use the <CODE>page</CODE> directive attributes - <CODE>errorPage</CODE> and <CODE>isErrorPage</CODE> </td>
+	<td>Section 10.3.3, Listing 10.3, 10.4</td>
+</tr>
+
+<tr>
+	<td><A HREF="hello.jsp?name=john">hello.jsp?name=john</A></td>
+	<td><B>Does not throw an exception</B> because the name parameter is passed. The errorHandler.jsp page is not called in this case.</td>
+	<td>Section 10.3.3, Listing 10.3, 10.4</td>
+</tr>
+
+<tr>
+	<td><A HREF="javascript:hitThrice();">threadSafety.jsp</A></td>
+	<td>Shows how to use the 
+	<CODE>page</CODE> directive attribute - <CODE>isThreadSafe</CODE>. The JSP page code contains a loop that executes 10 times and the thread uses Thread.currentThread().sleep(1000). <B>So it will take a little more than 10 seconds for the reply. Please be patient.</B> For the purpose of demonstration, the link on the left opens three windows. Observe the output in all three of them. <br>Note: Tomcat may not start a new thread for the third request. In such a case, the third window will get a response only after Tomcat processes the requests from the first two.</td>
+	<td>Section 10.3.6, Listing 10.5</td>
+</tr>
+
+</table>
+
+<H4>Important</H4>
+After you see the results of executing the above JSP pages, take a look at the source files, modify them, and practice the various concepts explained in this chapter.
+
+
+</pre>
+</body>
+</html>

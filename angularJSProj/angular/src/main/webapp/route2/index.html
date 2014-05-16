@@ -1,0 +1,20 @@
+<html ng-app="app">
+<head>
+</head>
+<body>
+	<div ng-controller="MainCtrl">
+		<a class="brand" href="#">Home</a>
+	    <ul>
+	         <li ><a ui-sref="users">List Users</a></li>                           
+	         <li ><a href="#/products">List Products</a></li>
+	     </ul>
+	     
+	     <div ui-view='main'></div>
+	     <div ui-view='modal'></div>
+	</div> 
+    <script src="../third-party/angular.1.1.5.js"></script>
+    <!-- UI-Router -->
+  	<script src="../third-party/angular-ui-router-0.2.0.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 

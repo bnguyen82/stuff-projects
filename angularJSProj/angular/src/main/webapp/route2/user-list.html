@@ -1,0 +1,14 @@
+<div>
+  <h4>Edit users:</h4>
+  <ul>
+    <li ng-repeat="user in userList ">
+        <a ui-sref="users.edit({uid : {{user.uid}}})">{{user.name}}</a>
+    </li>
+  </ul> 
+  <a ui-sref="users.editEs({uid : 2})">Bao Es</a>
+  
+  <br>
+  <a ui-sref="users.add">Add new User</a>
+  
+  <div ui-view></div>
+</div>

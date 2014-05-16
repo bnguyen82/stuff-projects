@@ -1,0 +1,21 @@
+ <div ng-controller="PhoneListCtrl">
+ Search: <input ng-model="query">
+  <br/>
+  Order by: <select ng-model="order">
+    <option value="name">Name</option>
+    <option value="snippet">Snippet</option>
+  </select>
+    <ul>
+      <hello></hello>	
+      <superhero strength> Super hero</superhero>
+      <div welcome greeting="Hello Guys"></div>
+      
+      <div enter="panel" leave>Mouse enter events catched</div>	
+      
+      <li ng-repeat="phone in phones | filter:query | orderBy:order">
+      <a href ng-click="$parent.phoneService.gotoPage('phone-detail.html')"><img ng-src="{{phone.imageUrl}}" /></a><br/>
+      <a >{{phone.id | checkmark}}</a>
+              <p>{{phone.snippet}}</p>
+      </li>
+    </ul>
+ <div>

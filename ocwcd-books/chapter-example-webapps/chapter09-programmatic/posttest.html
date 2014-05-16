@@ -1,0 +1,18 @@
+<html>
+<body>
+
+This form is only meant for submitting some data to the ProgrammaticSecureServlet using the HTTP POST method.
+Remember that we have allowed all employees to access the doPost() of this servlet. Therefore, when you submit the form
+you will be asked for username/password. And it will work only as per the users specified in tomcat-users.xml (explained in the previous page).
+<br>Once you enter a valid username/password (john/jjj or bob/bbb), you'll not be asked for authentication again,  even if you try and log in with a different user name.
+To change your authentication parameters, you'll have to shutdown all browser windows and access this page again.
+<br>
+
+<h4>Please enter any text.</h4>
+<form method="POST" action="/chapter09-programmatic/servlet/ProgramaticSecureServlet">
+<input type="text" name="username">
+<input type="submit" value="OK">
+</form>
+
+</body>
+</html>

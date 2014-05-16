@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:task="http://www.springframework.org/schema/task"
+		xmlns:jee="http://www.springframework.org/schema/jee"
+		xmlns:int = "http://www.springframework.org/schema/integration"
+		xmlns:int-jms="http://www.springframework.org/schema/integration/jms"
+		xmlns:int-file="http://www.springframework.org/schema/integration/file"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context-3.0.xsd
+							http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+							http://www.springframework.org/schema/jee
+						    http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+						    http://www.springframework.org/schema/integration
+						    http://www.springframework.org/schema/integration/spring-integration-2.2.xsd
+						    http://www.springframework.org/schema/integration/jms
+						    http://www.springframework.org/schema/integration/jms/spring-integration-jms-2.1.xsd
+						    http://www.springframework.org/schema/integration/file
+						    http://www.springframework.org/schema/integration/file/spring-integration-file-2.1.xsd
+						    http://www.springframework.org/schema/task
+						    http://www.springframework.org/schema/task/spring-task-3.0.xsd
+						    ">
+	<context:component-scan base-package="com.blog.spring.jms.*"/>
+
+	<int-jms:message-driven-channel-adapter 
+	  channel="notifications" 
+	  connection-factory="mqConnectionFactory"
+	  acknowledge="transacted"
+	  container="springMessageListenerContainer" />
+	 
+	<int:channel id="notifications"/>
+	<int:service-activator  input-channel="notifications" 
+                            output-channel="outActivator" 
+                            ref="jmsReceiver"
+                            method="onMessage" 
+                            requires-reply="true" >
+	</int:service-activator>
+    
+    <bean id="jmsReceiver" class="com.blog.spring.jms.JMSReceiver"></bean>
+    <int:publish-subscribe-channel id="outActivator"/>
+	
+ 	<!--  Split and then route messages to channel
+ 	<int:channel id="outSplitter"/>
+	<int:splitter input-channel="outActivator" output-channel="outSplitter" ref="messageSplitter">
+	</int:splitter>
+	<bean id="messageSplitter" class="com.blog.spring.jms.MessageSplitter"/>
+    <int:channel id="outListRouter"/>
+	<int:recipient-list-router input-channel="outSplitter"  >
+		<int:recipient channel="outListRouter" selector-expression="payload.equals('Enter')"/>
+	</int:recipient-list-router> 
+	-->
+	
+    <int:channel id="outTransformer">
+    	<int:queue/>
+    </int:channel>
+	<int:transformer input-channel="outActivator" output-channel="outTransformer" ref="messageTransformer">
+	</int:transformer>
+	<bean id="messageTransformer" class="com.blog.spring.jms.MessageTransformer"/>
+	
+	<!-- <int:bridge input-channel="outTransformer" output-channel="outBridge" 
+	</int:bridge> -->
+    <!-- <int:channel id="outBridge"/> --> 
+
+	<bean id="messageTransformer2" class="com.blog.spring.jms.MessageTransformer2"/>
+	<int:transformer input-channel="outActivator" output-channel="outTransformer2" ref="messageTransformer2" >
+	</int:transformer>
+    <int:channel id="outTransformer2"/>
+
+
+	<bean id="messageTransformer3" class="com.blog.spring.jms.MessageTransformer3"/>
+	<bean id="errTransformer" class="com.blog.spring.jms.ErrorTransformer"/>
+    <int:channel id="outTransformer1"/>
+	<int:transformer input-channel="outTransformer" output-channel="outTransformer1" ref="messageTransformer3" >
+		<int:poller max-messages-per-poll="1" fixed-rate="100" task-executor="aTask"/>
+	</int:transformer>
+
+	<task:executor id="aTask" pool-size="2" queue-capacity="20"></task:executor>
+	
+	<int-file:outbound-channel-adapter  id="filesOut"  
+										channel="outTransformer1" 
+										directory="file:/D:/SpringInteg/files" >
+	</int-file:outbound-channel-adapter>
+	<int-file:outbound-channel-adapter  id="filesOut"  
+										channel="outTransformer2" 
+										directory="file:/D:/SpringInteg/files_2" >
+	</int-file:outbound-channel-adapter>
+    <int:channel id="errChannel"/>
+	<int-file:outbound-channel-adapter  id="errorOut"  
+										channel="errChannel" 
+										directory="file:/D:/SpringInteg/errors" />
+	<!-- 
+	<int-jms:outbound-channel-adapter 
+                            channel="outActivator"
+                            connection-factory="mqConnectionFactory" 
+                            destination="testTopicTwo" 
+                            delivery-persistent="true" >
+	</int-jms:outbound-channel-adapter> -->
+	
+	<bean id="springMessageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    	<property name="connectionFactory" ref ="mqConnectionFactory" />
+    	<property name="destination" ref ="testTopicOne"/>
+    	<property name="sessionTransacted" value="true"/>
+		<property name="concurrentConsumers" value="1" />
+    </bean>
+
+	<!-- Task Scheduler -->
+	<bean id="printing" class="com.blog.spring.jms.PrintingTask"/>
+	<task:scheduled-tasks scheduler="taskSchedule" >
+		<task:scheduled ref="printing" method="printing" fixed-delay="400000"/>
+		<!-- <task:scheduled ref="printing" method="greeting" fixed-rate="4000"/> -->
+	</task:scheduled-tasks>
+	<task:scheduler id="taskSchedule" pool-size="3"/>
+	
+	<!-- Use Springs JNDI support to look up JMS Connection Factory and Queue definitions from the
+	     container. This means that specific connection details are not embedded in the application
+	 -->
+	<jee:jndi-lookup id="mqConnectionFactory" jndi-name="java:comp/env/jms/mqConnectionFactory" />
+	<jee:jndi-lookup id="testQueueOne" jndi-name="java:comp/env/jms/testQueueOne" />
+	<jee:jndi-lookup id="testQueueTwo" jndi-name="java:comp/env/jms/testQueueTwo" />
+	<jee:jndi-lookup id="testTopicOne" jndi-name="java:comp/env/jms/testTopicOne" />
+	<jee:jndi-lookup id="testTopicTwo" jndi-name="java:comp/env/jms/testTopicTwo" />
+
+	<!-- Our message listener implementation that implements the JMS MessageListener interface and implements the
+		 onMessage method to process incoming messages
+	 -->
+	<bean id="testMessageListener" class="com.blog.spring.jms.TestMessageListener">
+    	<property name="testMessageSender" ref ="testMessageSender" />
+    </bean>
+
+	<!-- DefaultMessageListenerConatiner is the Spring equivalent to an EJB Message Driven Bean.
+	     It polls and consumes messages from a JMS queue.  The configuration below is as follows
+
+	     1. connectionFactory - the connection factory definition used to connect to the Message Broker
+	        which in our case is Active MQ
+	     2. destination - the Queue which the MessageListener container is listening on from incoming messages
+	     3. messageListener - the implementation class that will actually handle the incoming messages. The
+	        DeafultMesssageListener takes messages from the queue and passes them to the message listener for
+	        processing. We've defined our message listener above (testMessageListener)
+	     4. concurrentConsumers - this is the number of threads that the DeafultMesaegListenerContainer will
+	        spawn to handle incoming messages. The default is 1 but in our application we'll have 2 separate
+	        threads processing incoming messages.
+	  -->
+	<bean id="poiMessageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    	<property name="connectionFactory" ref ="mqConnectionFactory" />
+    	<property name="destination" ref ="testTopicTwo"/>
+		<property name="messageListener" ref ="testMessageListener"/>
+		<property name="concurrentConsumers" value="1" />
+    </bean>
+
+
+	<!-- MessageSender is a simple POJO that we supply with a JMSTemplate and
+    	 the Queue that we want to send messages to
+     -->
+	<bean id="testMessageSender" class="com.blog.spring.jms.TestMessageSender">
+		<property name="jmsTemplate" ref="jmsTemplate"/>
+		<property name="testQueue" ref="testQueueTwo"/>
+	</bean>
+
+	<!-- JMSTemplate is a Spring template that allows us to communicate with
+		 a message broker via JMS. JMSTemplate takes care of boiler plate code such as exception handling
+		 and resource management such as connection pooling. This allows us concentrate on solving the 'business'
+		 problem. We supply the JMS template with the connection factory mentioned above
+     -->
+	<bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+		<property name="connectionFactory" ref="mqConnectionFactory" />
+	</bean>
+
+</beans>

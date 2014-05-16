@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+    http://java.sun.com/xml/ns/j2ee/webapp_2_4.xsd" version="2.4">
+
+	<!-- Taglib 1 -->
+		<taglib>
+			<taglib-uri>
+				http://www.manning.com/studyKit
+			</taglib-uri>
+			<taglib-location>
+				/myLibs/studyKit.tld
+			</taglib-location>
+		</taglib>
+
+
+	<!-- Taglib 2 -->
+		<taglib>
+			<taglib-uri>
+				http://www.manning.com/sampleLib
+			</taglib-uri>
+			<taglib-location>
+				yourLibs/sample.jar
+			</taglib-location>
+		</taglib>
+
+
+	<!-- Taglib 3 -->
+		<taglib>
+			<taglib-uri>
+				http://www.manning.com/myTest
+			</taglib-uri>
+			<taglib-location>
+				sampleLib.tld
+			</taglib-location>
+		</taglib>
+
+</web-app>

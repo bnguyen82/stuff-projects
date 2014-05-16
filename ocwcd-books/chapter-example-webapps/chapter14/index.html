@@ -1,0 +1,57 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>Chapter14</title>
+</head>
+
+<body>
+<center><h3> Chapter 14 - Using JavaBeans </h3></center>
+
+This application contains the following components:
+<br><br>
+1. Section 14.1.1, Listing 14.1: /WEB-INF/classes/AddressBean.class
+<br>
+2. Section 14.1.2, Listing 14.2: /addressForm.html
+<br>
+3. Section 14.1.2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;/address.jsp
+<br>
+4. Section 14.2.3, Listing 14.4: /addressDisplay.jsp
+<br>
+5. Section 14.1.3, Listing 14.3: /beanSaver.jsp
+<br><br>
+Click on this link to see the first four components in action:<br>
+
+<A HREF="addressForm.html">addressForm.html</A>
+<br>
+<br>
+<H4>How it works</H4>
+
+<br>
+1. When you click the above URL, it gets the addressForm.html page.
+<br>
+2. This page contains an HTML form with its <CODE>action </CODE> attribute pointing 
+to address.jsp.
+<br>
+3. address.jsp creates an instance of type AddressBean and sets its properties using the form data.
+<br>
+4. It then puts the 
+bean into the session and forwards the request to addressDisplay.jsp.
+<br>
+5. addressDisplay.jsp gets the AddressBean instance from the session, and prints its values.
+
+
+<br><br>
+<H4>Using serialized beans</H4>
+Click on the link below to see the fifth component in action.<br>
+<A HREF="beanSaver.jsp?name=john&city=Ardsley&state=NY">beanSaver.jsp?name=john&city=Ardsley&state=NY</A>
+<br><br>
+We have already created the directory structure /WEB-INF/classes/businessData/visitorAddresses/ in chapter14 web application. When you click the above link, it will create a serialized file named john.ser under the <br>
+/WEB-INF/classes/businessData/visitorAddresses/" directory. You can then use this bean using the beanName attribute of the &lt;jsp:useBean&gt; action.
+
+<br><br>
+Open the source files, modify the code, play around with it, and practice the different ways to use
+the useBean, setProperty, and getProperty actions to get familiar with them.
+
+</body>
+</html>

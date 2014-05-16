@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+   PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+   "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+   <servlet>
+
+      <servlet-name>InitTestServlet</servlet-name>
+      <jsp-file>/initTest.jsp</jsp-file>
+
+      <init-param>
+         <param-name>region</param-name>
+         <param-value>North America</param-value>
+      </init-param>
+
+   </servlet>
+
+<!-- Following mapping is required for Tomcat version 4.1.x onwards 
+	to access /servlet/InitTestServlet -->
+
+  <servlet-mapping>
+	<servlet-name>InitTestServlet</servlet-name>
+	<url-pattern>/servlet/InitTestServlet</url-pattern>
+  </servlet-mapping>
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+   <servlet-mapping>
+      <servlet-name>InitTestServlet</servlet-name>
+      <url-pattern>/initTest.jsp</url-pattern>
+   </servlet-mapping>
+
+</web-app>

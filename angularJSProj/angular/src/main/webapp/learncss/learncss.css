@@ -1,0 +1,45 @@
+.myBold {
+	font-weight : bold;
+}
+
+.myItalic {
+	font-style : italic;
+}
+
+a + p {
+	font-weight: bold;
+}
+
+div>a {
+	color: red;
+	opacity: 1;
+	font-weight: normal;
+}
+
+div {
+	border-top-width: 1em;
+	border-bottom-width: 1px;
+	border-style: solid;
+	border-color: green;
+}
+div #bao {
+	-webkit-transform: rotate(3deg);
+}
+div #flow  {
+	position: relative;
+	top:100px;
+	border-radius: 2em 2em 1em 0.5em;
+	-webkit-transform: rotate(3deg);
+	1border-color: yellow;
+}
+
+#flow .ha {
+	font-style: italic;
+	border-color: yellow;
+}
+
+[attrib="bao"] {
+	border-color: red;
+	font-weight: bold;
+	box-shadow: -4px -4px 4px rgba(0, 0, 0, 0.6);
+}

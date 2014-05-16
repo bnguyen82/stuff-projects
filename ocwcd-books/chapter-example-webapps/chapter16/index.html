@@ -1,0 +1,101 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>Chapter16</title>
+</head>
+
+<body>
+<center><h3> Chapter 16 - Developing custom tag libraries</h3></center>
+<p>
+This application contains sample JSP pages that test the different custom tags as shown in chapter 16.
+</p>
+
+<table border='1'>
+
+<tr>
+	<th align='left'>Link to JSP page</td>
+	<th align='left'>Custom tag used</td>
+	<th align='left'>Handler class explained in</td>
+</tr>
+
+<tr>
+	<td><A HREF="requiredTest.jsp">requiredTest.jsp</A></td>
+	<td>&lt;test:required&gt;</td>
+	<td>Section 16.3.2, Listing 16.2</td>
+</tr>
+
+<tr>
+	<td><A HREF="greetTest.jsp">greetTest.jsp</A></td>
+	<td>&lt;test:greet&gt;</td>
+	<td>Section 16.3.3</td>
+</tr>
+
+<tr>
+	<td><A HREF="greetTest.jsp?user=john">greetTest.jsp?user=john</A></td>
+	<td>&lt;test:greet&gt;</td>
+	<td>Section 16.3.3</td>
+</tr>
+
+<tr>
+	<td><A HREF="greetTest.jsp?user=mary">greetTest.jsp?user=mary</A></td>
+	<td>&lt;test:greet&gt;</td>
+	<td>Section 16.3.3</td>
+</tr>
+
+<tr>
+	<td><A HREF="ifTest.jsp">ifTest.jsp</A></td>
+	<td>&lt;test:if&gt;</td>
+	<td>Section 16.3.4</td>
+</tr>
+
+<tr>
+	<td><A HREF="ifTest.jsp?debug=true">ifTest.jsp?debug=true</A></td>
+	<td>&lt;test:if&gt;</td>
+	<td>Section 16.3.4</td>
+</tr>
+
+<tr>
+	<td><A HREF="loopTest.jsp">loopTest.jsp</A></td>
+	<td>&lt;test:loop&gt;</td>
+	<td>Section 16.4.2, Listing 16.3</td>
+</tr>
+
+<tr>
+	<td><A HREF="markerTest.jsp">markerTest.jsp</A></td>
+	<td>&lt;test:mark&gt;</td>
+	<td>Section 16.5.2, Listing 16.4</td>
+</tr>
+
+<tr>
+	<td><A HREF="implicitTest.jsp">implicitTest.jsp</A></td>
+	<td>&lt;test:implicit&gt;</td>
+	<td>Section 16.6.3, Listing 16.5</td>
+</tr>
+
+<tr>
+	<td><A HREF="switchTest.jsp?action=sayHello">switchTest.jsp?action=sayHello</A></td>
+	<td>&lt;test:switch&gt;,&lt;test:case&gt;,&lt;test:default&gt;</td>
+	<td>Section 16.6.4, Listing 16.6, 16.7, 16.8, 16.9</td>
+</tr>
+
+<tr>
+	<td><A HREF="switchTest.jsp?action=sayGoodBye">switchTest.jsp?action=sayGoodBye</A></td>
+	<td>&lt;test:switch&gt;,&lt;test:case&gt;,&lt;test:default&gt;</td>
+	<td>Section 16.6.4, Listing 16.6, 16.7, 16.8, 16.9</td>
+</tr>
+
+<tr>
+	<td><A HREF="switchTest.jsp?action=nothing">switchTest.jsp?action=nothing</A></td>
+	<td>&lt;test:switch&gt;,&lt;test:case&gt;,&lt;test:default&gt;</td>
+	<td>Section 16.6.4, Listing 16.6, 16.7, 16.8, 16.9</td>
+</tr>
+
+
+</table>
+
+<H4>Important</H4>
+After you see the results of executing the above JSP pages, take a look at the JSP files, the Java source files of these tag handler classes, and the TLD file. Modify them, try out different samples and practice the various concepts explained in this chapter.
+
+</body>
+</html>

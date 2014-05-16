@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>HTTP method test</title>
+</head>
+
+<body>
+
+<ul>
+<li>The HttpMethodTestServlet prints the method name of the request on the Tomcat console.<br><br>
+A click on <a href="/chapter04/servlet/HTTPMethodTestServlet?name=john">/chapter04/servlet/HTTPMethodTestServlet?name=john</a> will send a GET request.
+
+
+<p>Submitting the following form will send a POST request:<br>
+   <FORM name='loginForm' method='POST' action='/chapter04/servlet/HTTPMethodTestServlet'>
+   <input type='text' name='userid'>
+   <input type='password' name='passwd'>
+   <input type='submit' name='loginButton' value='Login'>
+   </FORM>
+
+<li>The init() method of HTTPMethodTestServlet illustrates how to retrieve servlet initialization parameters. It prints the names and values of these parameters on the console when the servlet is initialized.
+</ul>
+</body>
+</html>

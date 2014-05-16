@@ -1,0 +1,97 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>Chapter11</title>
+</head>
+
+<body>
+<center><h3> Chapter 11 - The JSP technology model - advanced topics</h3></center>
+<p>
+This application contains the following components as shown in chapter 11.
+Clicking on the links below will execute the JSP pages on the server.
+</p>
+
+<table border='1'>
+
+<tr>
+	<th align='left'>JSP Page</td>
+	<th align='left'>Description</td>
+	<th align='left'>Explained in</td>
+</tr>
+
+<tr>
+	<td><A HREF="area.jsp">area.jsp</A></td>
+	<td>Shows that the order of declarations is not important</td>
+	<td>Section 11.1.1, Listing 11.1</td>
+</tr>
+
+<tr>
+	<td><A HREF="orderOfScriptlets.jsp">orderOfScriptlets.jsp</A></td>
+	<td><b>Will generate errors.</b> Shows that the order of scriptlets is important</td>
+	<td>Section 11.1.1</td>
+</tr>
+
+<tr>
+	<td><A HREF="initializationOfVariables.jsp">initializationOfVariables.jsp</A></td>
+	<td><b>Will generate errors.</b> Shows that the initialization of variables is required in scriptlets but not in declarations</td>
+	<td>Section 11.1.1</td>
+</tr>
+
+<tr>
+	<td><A HREF="conditionalTest1.jsp">conditionalTest1.jsp</A></td>
+	<td>Shows how to write a conditional statement within a scriptlet</td>
+	<td>Section 11.1.2</td>
+</tr>
+
+
+<tr>
+	<td><A HREF="conditionalTest2.jsp">conditionalTest2.jsp</A></td>
+	<td>Shows how to write a conditional statement that mixes HTML within multiple scriptlets</td>
+	<td>Section 11.1.2</td>
+</tr>
+
+<tr>
+	<td><A HREF="iterationTest.jsp">iterationTest.jsp</A></td>
+	<td>Shows how to write an iterative statement that mixes HTML within multiple scriptlets</td>
+	<td>Section 11.1.2</td>
+</tr>
+
+<tr>
+	<td><A HREF="escapeSequence.jsp">escapeSequence.jsp</A></td>
+	<td>Shows how to write escape sequences in JSP pages</td>
+	<td>Section 11.1.4</td>
+</tr>
+
+<tr>
+	<td><A HREF="implicit.jsp">implicit.jsp</A></td>
+	<td>An empty page. Clicking on this link will not generate any output.
+ Open the generated servlet Java file to see the implicitly declared variables.
+The name of the file will be different on different servers.
+Tomcat will generate &lt;TOMCAT_HOME&gt;\work\localhost\chapter11\implicit$jsp.java</td>
+	<td>Section 11.2, Listing 11.2</td>
+</tr>
+
+<tr>
+	<td><A HREF="initTest.jsp">initTest.jsp</A></td>
+	<td>Shows how to use the <CODE>config</CODE> implicit variable to retrieve configuration parameters.
+	See web.xml in the WEB-INF directory of this application and learn how to pass different configuration parameters specifically meant for a JSP page
+	</td>
+	<td>Section 11.2.7, Listing 11.3, 11.4</td>
+</tr>
+
+<tr>
+	<td><A HREF="counter_xml.jsp">counter_xml.jsp</A></td>
+	<td>A JSP document (which is a JSP page written in XML format) that counts the number of times it is visited</td>
+	<td>Section 11.4, Listing 11.5</td>
+</tr>
+
+</table>
+
+<H4>Important</H4>
+After you see the results of executing the above JSP pages, take a look at the source files, modify them, and practice the various concepts explained in this chapter.
+
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Chapter09 - declarative security</title>
+</head>
+
+<body>
+<center><h3> Chapter 09 - Developing secure web applications (Declarative Approach) </h3></center>
+This web application shows how to specify the security aspects of a web application declaratively in the web.xml
+<br>
+<br>
+
+
+Note: To be able run this web application, you should have the user names and passwords configured in the tomcat-users.xml file 
+as explained in section 9.2.5. For your convenience, we are giving sample values for this file. 
+You can copy the following contents into conf/tomcat-users.xml:<br>
+<pre>
+&lt;tomcat-users&gt;
+  &lt;user name="tomcat" password="tomcat" roles="tomcat" /&gt;
+  &lt;user name="role1"  password="tomcat" roles="role1"  /&gt;
+  &lt;user name="both"   password="tomcat" roles="tomcat,role1" /&gt;
+
+  &lt;user name="john"   password="jjj" roles="employee" /&gt;
+  &lt;user name="mary"   password="mmm" roles="employee" /&gt;
+  &lt;user name="bob"   password="bbb" roles="employee, supervisor" /&gt;
+
+&lt;/tomcat-users&gt;
+
+</pre>
+
+
+<p>
+<ol>
+
+<li>This web application contains only one servlet named DeclarativeSecureServlet. There is no restriction 
+on GET requests to this servlet. 
+To send a GET request, click <a href="/chapter09-declarative/servlet/DeclarativeSecureServlet">on this hyperlink.</a><br>
+<br>
+<li>However, only users in the role of supervisor can make a POST request. The servlet container sends the "authentication required" message if a POST request is sent to the servlet.
+<p>
+The following is the web.xml snippet showing the security constraint that allows only a supervisor to send a POST request:<br>
+<pre>
+ &lt;security-constraint&gt;
+
+   &lt;web-resource-collection&gt;
+      &lt;web-resource-name&gt;declarativetest&lt;/web-resource-name&gt;
+      &lt;url-pattern&gt;/servlet/DeclarativeSecureServlet&lt;/url-pattern&gt;
+      <b>&lt;http-method&gt;POST&lt;/http-method&gt;</b>
+   &lt;/web-resource-collection&gt;
+
+   &lt;auth-constraint&gt;
+      <b>&lt;role-name&gt;supervisor&lt;/role-name&gt;</b>
+   &lt;/auth-constraint&gt;
+
+   &lt;user-data-constraint&gt;
+      &lt;transport-guarantee&gt;NONE&lt;/transport-guarantee>
+   &lt;/user-data-constraint>
+
+ &lt;/security-constraint&gt;
+
+</pre>
+ To make a POST request, submit the form present on <a href="/chapter09-declarative/posttest.html">this</a> page. 
+</ol>
+
+</body>
+</html>

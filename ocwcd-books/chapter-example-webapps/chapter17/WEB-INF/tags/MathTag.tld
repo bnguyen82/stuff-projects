@@ -1,0 +1,25 @@
+<!DOCTYPE taglib PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+  "http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+  <uri>www.manning.com/scwcd/math</uri>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.0</jsp-version>
+  <tag>
+    <name>functions</name>
+    <tag-class>myTags.MathTag</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>num</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <dynamic-attributes>
+      true
+    </dynamic-attributes>    
+    <description>
+      Sends a math expression to the JSP
+    </description>
+  </tag>
+</taglib>

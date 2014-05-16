@@ -1,0 +1,61 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+<title>Chapter17</title>
+</head>
+
+<body>
+<center><h3> Chapter 17 - Developing “Simple” custom tag libraries</h3></center>
+<p>
+This application contains sample JSP pages that test the different custom simple tags as shown in chapter 17.
+</p>
+
+<table border='1'>
+
+<tr>
+	<th align='left'>Link to JSP page</td>
+	<th align='left'>Custom tag used</td>
+	<th align='left'>Handler class explained in</td>
+</tr>
+
+<tr>
+	<td><A HREF="SimpleTagExample.jsp">SimpleTagExample.jsp</A></td>
+	<td>&lt;example:message&gt;</td>
+	<td>Section 17.1</td>
+</tr>
+
+<tr>
+	<td><A HREF="math.jsp">math.jsp</A></td>
+	<td>&lt;math:functions&gt;</td>
+	<td>Section 17.2.1, Listing 17.4</td>
+</tr>
+
+<tr>
+	<td><A HREF="example.jsp">example.jsp</A></td>
+	<td>&lt;ex:example&gt;</td>
+	<td>Section 17.3.1, Listing 17.9</td>
+</tr>
+
+<tr>
+	<td><A HREF="invokeaction.jsp">invokeaction.jsp</A></td>
+	<td>&lt;inv.invokeaction&gt;</td>
+	<td>Section 17.3.4, Listing 17.11</td>
+</tr>
+
+<tr>
+	<td><A HREF="bodyaction.jsp">bodyaction.jsp</A></td>
+	<td>&lt;bod:bodyaction&gt;</td>
+	<td>Section 17.3.4, Listing 17.13</td>
+</tr>
+
+</table>
+
+<H4>Important</H4>
+<p>In order to use the JSTL, you need to copy jstl.jar and standard.jar from
+<BR>C:\jakarta-tomcat-5.0.25\webapps\jsp-examples\WEB-INF\lib<BR>and add them to a lib directory within WEB-INF.</p>
+<p>All tag files must be placed in or under a tags directory in WEB-INF</p>
+After you see the results of executing the above JSP pages, take a look at the JSP files, the Java source files of these tag handler classes, and the TLD file. Modify them, try out different samples and practice the various concepts explained in this chapter.
+
+</body>
+</html>

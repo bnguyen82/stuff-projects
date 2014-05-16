@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Chapter05</title>
+</head>
+
+<body>
+<center><h3> Chapter 05 - Structure and Deployment </h3></center>
+
+This web application helps you play with the URL to servlet mapping. 
+The servlet-class for all the servlets is chapter5.TestServlet. 
+It prints out the context path, servlet path, and path info on the browser. 
+You should try out various combinations of servlet path and path info as explained in section 5.2.4. 
+Here are some URLS that show how the mappings work:<br>
+
+<a href="/chapter05/red">/chapter05/red</a><br>
+<a href="/chapter05/red/">/chapter05/red/</a><br>
+<a href="/chapter05/red/aaa">/chapter05/red/aaa</a><br>
+<a href="/chapter05/red/blue/aa">/chapter05/red/blue/aa</a><br>
+<a href="/chapter05/red/red/aaa">/chapter05/red/red/aaa</a><br>
+<a href="/chapter05/aa.col">/chapter5/aa.col</a><br>
+<p>
+The deployment descriptor of this application 
+contains the following servlets and servlet mappings:
+<p>
+<pre>
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;RedServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;chapter5.TestServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;BlueServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;chapter5.TestServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;GreenServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;chapter5.TestServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;RedBlueServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;chapter5.TestServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;ColorServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;chapter5.TestServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+
+
+   &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;RedServlet&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/red/*&lt;/url-pattern&gt;
+   &lt;/servlet-mapping&gt;
+
+   &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;RedServlet&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/red/red/*&lt;/url-pattern&gt;
+   &lt;/servlet-mapping&gt;
+
+   &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;RedBlueServlet&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/red/blue/*&lt;/url-pattern&gt;
+   &lt;/servlet-mapping&gt;
+
+   &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;BlueServlet&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/blue/&lt;/url-pattern&gt;
+   &lt;/servlet-mapping&gt;
+
+   &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;GreenServlet&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;/green&lt;/url-pattern&gt;
+   &lt;/servlet-mapping&gt;
+
+   &lt;servlet-mapping&gt;
+      &lt;servlet-name&gt;ColorServlet&lt;/servlet-name&gt;
+      &lt;url-pattern&gt;*.col&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+
+
+</p>
+
+
+
+</body>
+</html>

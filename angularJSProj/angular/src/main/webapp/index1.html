@@ -1,0 +1,39 @@
+<html ng-app="phonecat">
+
+  <head>
+    <script data-require="angular.js@1.1.5" data-semver="1.1.5" src="http://code.angularjs.org/1.1.5/angular.min.js"></script>
+	 <script data-require="jquery@2.0.1" data-semver="2.0.1" src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+	<script src="basic/filters.js"></script>
+    <script src="basic/controllers.js"></script>
+	<script src="basic/services.js"></script>
+	<script src="basic/directives.js"></script>
+	<script src="basic/http-service.js"></script>
+	<script src="basic/jQuery.js"></script>
+	<script src="basic/crossdomain.js"></script>
+	<link rel="stylesheet" href="basic/styles.css" type="text/css"></link>
+  	<script type="text/javascript">
+  		$(document).ready(function() {
+
+  			
+		})
+  	</script>
+  </head>
+  
+	
+  <body>
+  <script>
+  	function showGreeting(){
+  		this.bao="Good";
+  	}
+  	var ha = new showGreeting();
+  	//alert(ha.bao);
+  </script>
+  <div ng-controller="MainCtrl">
+  	<div ng-click="broadcastEvent()">Broadcase event</div>
+  	<div id="statusBar">Failed</div>
+    <div ng-include="'phone-list.html'"></div>
+  </div>      
+  </body>
+
+</html>
+
