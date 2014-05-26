@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Hello World, AngularJS - ViralPatel.net</title>
+    <script src="../lib/angular.min.js"></script>
+ 
+</head>
+<body ng-app="myApp">
+    <div ng-controller="HelloController"> 
+      Write some text in textbox:
+      <input type="text" ng-model="word" />
+   
+      <h1>Hello {{ word }}</h1>
+      
+    </div> 
+    <script>
+       var app = angular.module('myApp', []);
+       app.controller('HelloController', function($scope){
+          $scope.word = 'World';          
+       });
+    </script> 
+</body>
+</html>
