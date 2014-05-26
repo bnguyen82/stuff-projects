@@ -7,16 +7,16 @@
 </head>
 <body ng-app="myApp">
     <div ng-controller="HelloController"> 
-      Write some text in textbox:
-      <input type="text" ng-model="word" />
+      Name:
+      <input type="text" ng-model="name" />
    
-      <h1>Hello {{ word }}</h1>
+      <h1>Hello {{ name }}</h1>
       
     </div> 
     <script>
        var app = angular.module('myApp', []);
        app.controller('HelloController', function($scope){
-          $scope.word = 'World';          
+          $scope.name = 'World';          
        });
     </script> 
 </body>
