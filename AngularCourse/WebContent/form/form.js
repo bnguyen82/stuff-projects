@@ -1,24 +1,23 @@
-var app = angular.module('form-example1', []);
+var app = angular.module('form-example', []);
 
-var INTEGER_REGEXP = /^\-?\d+$/;
-app.directive('integer', function() {
-  return {
-    require: 'ngModel',
-    link: function(scope, elm, attrs, ctrl) {
-      ctrl.$parsers.unshift(function(viewValue) {
-        if (INTEGER_REGEXP.test(viewValue)) {
-          // it is valid
-          ctrl.$setValidity('integer', true);
-          return viewValue;
-        } else {
-          // it is invalid, return undefined (no model update)
-          ctrl.$setValidity('integer', false);
-          return undefined;
-        }
-      });
-    }
+function Controller($scope) {
+  $scope.master = {};
+
+  $scope.update = function(user) {
+    $scope.master = angular.copy(user);
   };
-});
+
+  $scope.reset = function() {
+    $scope.user = angular.copy($scope.master);
+  };
+
+  $scope.isUnchanged = function(user) {
+    return angular.equals(user, $scope.master);
+  };
+
+  $scope.reset();
+}
+
 
 var FLOAT_REGEXP = /^\-?\d+((\.|\,)\d+)?$/;
 app.directive('smartFloat', function() {
