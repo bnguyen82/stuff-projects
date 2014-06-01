@@ -1,0 +1,17 @@
+<div 
+    data-ng-repeat=
+	    'record in records | filter: filter_name'
+></div>
+
+
+<html ng-app='coolApp'>
+…
+<body>
+…
+  <script src='angular.js'></script>
+  <script src='coolApp.js'></script>
+</body>
+</html>
+<p ng-controller='PersonController as person'>
+    Hi, {{person.model.name}}
+</p>
