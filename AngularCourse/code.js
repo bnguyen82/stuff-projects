@@ -460,10 +460,32 @@ $http({method: 'GET', url: '/someUrl'}).
 });
 
 
-myApp.controller('MyController', ['$scope', function($scope) {
-    $scope.naomi = { name: 'Naomi', 
-                    address: '1600 Amphitheatre' 
-                  };
-    
+myApp.controller('MyController', function($scope) {
+  $scope.naomi = { name: 'Naomi', 
+                  address: '1600 Amphitheatre' 
+                };
+  $scope.addNumber = function(x, y) {
+    return x + y;
+  };
+});  
 
-  }])
+
+angular.module('myApp', [])
+.controller('MyController', ['$scope', function ($scope) {
+  $scope.greetMe = 'World';
+}]);    
+
+angular.element(document).ready(function(){
+  angular.bootstrap(document);
+});
+
+
+  function $apply(expr) {
+   try {
+     return $eval(expr);
+   } catch (e) {
+     $exceptionHandler(e);
+   } finally {
+     $root.$digest();
+   }
+  }
