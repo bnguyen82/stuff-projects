@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" ng-app="storeApp">
+<head>
+  <script src="../lib/angular.js"></script>
+  <script src="js/controllers.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css" >
+  
+</head>
+<body>
+
+	<div class="container-fluid">
+	  <div class="row">
+	    <div class="col-md-10">
+	      <ul>
+	        <li ng-repeat="product in products" class="thumbnail">
+	          {{phone.name}}
+	          {{phone.year}}	          
+	        </li>
+	      </ul>
+	
+	    </div>
+	  </div>
+	</div>
+	
+</body>
+</html>
