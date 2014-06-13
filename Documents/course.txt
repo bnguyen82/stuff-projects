@@ -1,0 +1,19 @@
+Store Online Application
+Day 01:
+- Design a small web application to allow user to view list of all products available
+as well as adding new product
+  + List products from a provided json object (model, year, price, producer, available)
+  + Allow (+/-) button to update number of available products remaining.
+  + Provide filter for products on those fields by inputting to a text field
+  + Provide Add button along with 4 text field to add new product
+  
+  Note: use ng-repeat to loop over the product list
+
+Day 02:
+- Create a template directive to wrap contents inside ng-repeat so that we can use that directive in other places
+- The template should receive dynamic product info as well as handle (+/-) button
+
+Day 03:
+- Create a link on producer column, click on this will navigate to producer page with some basic information
+- Add a Back button to return to product list page
+  
