@@ -13,6 +13,9 @@
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
+		<resource-bundle>
+			
+		</resource-bundle>
 		<portlet-info>
 			<title>sample-portlet</title>
 			<short-title>sample-portlet</short-title>
