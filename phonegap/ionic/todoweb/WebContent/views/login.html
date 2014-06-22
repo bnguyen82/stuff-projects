@@ -1,0 +1,33 @@
+<div class="modal">
+
+  <!-- Modal header bar -->
+  <ion-header-bar class="bar-secondary">
+    <h1 class="title">Sign in</h1>
+    <!-- <button class="button button-clear button-positive" ng-click="">Cancel</button> -->
+  </ion-header-bar>
+
+  <!-- Modal content area -->
+  <ion-content>
+
+    <form ng-submit="signin()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Username" ng-model="username">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="password">
+        </label>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive">Sign In</button>
+      </div>
+    </form>
+    <div>Login with</div>
+    <div>
+    	<span><i class="icon ion-compose" ng-click="loginGoogle()"></i></span>
+    </div>
+
+  </ion-content>
+
+</div>
+
