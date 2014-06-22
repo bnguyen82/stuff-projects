@@ -1,12 +1,15 @@
-todoApp.controller('LoginCtrl', function($scope, $state, $stateParams, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
+todoApp.controller('LoginCtrl', function($scope, $state, $stateParams, authManager, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
 	console.log('Hello Bao');
 	
 	$scope.login = function(){
 		
 	};
+	$scope.logout = function(){
+		authManager.logout();
+	};
 	
 	$scope.loginGoogle = function(){
-		
+		authManager.login('google');
 	};
 })
 .controller('TodoCtrl', function($scope, $state, $stateParams, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
