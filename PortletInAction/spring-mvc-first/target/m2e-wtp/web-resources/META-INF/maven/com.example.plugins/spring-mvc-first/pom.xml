@@ -161,9 +161,9 @@
 		
 			
 	</dependencies>
-<profiles>
-<profile>
-	<id>Liferay-v6.2-CE-(Tomcat-7)</id>
+<!-- <profiles> -->
+<!-- <profile>
+	<id>Liferay-v6.2-CE-(Tomcat-7)</id> -->
 	<properties>
 		<liferay.version>6.2.1</liferay.version>
 		<liferay.maven.plugin.version>6.2.10.6</liferay.maven.plugin.version>
@@ -173,6 +173,6 @@
 		<liferay.app.server.portal.dir>D:\Works\liferay-portal-6.2-ce-ga2\tomcat-7.0.42\webapps\ROOT</liferay.app.server.portal.dir>
 		<springframework.version>3.1.0.RELEASE</springframework.version>
 	</properties>
-	</profile>
-</profiles>
+<!-- </profile> -->
+<!-- </profiles> -->
 </project>
