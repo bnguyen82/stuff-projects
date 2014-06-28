@@ -45,6 +45,29 @@ var todoApp = angular.module('todo', ['ionic', 'firebase.utils'])
 			  }
 		  }
 	  })
+	  .state('register', {
+		  url: '/register',
+		  views: {
+			  'main': {
+				  templateUrl: 'views/register.html',
+				  controller: 'LoginCtrl'
+			  }
+		  }
+	  })
+	  .state('poll', {
+		  url: '/poll',
+		  abstract: true,
+		  templateUrl: 'views/partials/polls/polls.html'
+	  })
+	  .state('poll.list', {
+		  url: '/poll/list',
+		  views: {
+			 'main': {
+				  templateUrl: 'views/partials/polls/list.html',
+				  controller: 'PollListCtrl'
+			  }
+		  }
+	  })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

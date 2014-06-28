@@ -5,13 +5,41 @@ todoApp.controller('LoginCtrl', function($scope, $state, $stateParams, authManag
 		
 	};
 	$scope.logout = function(){
-		authManager.logout();
+		//authManager.logout();
+		var clientRef = new Firebase("https://fiery-fire-2200.firebaseio.com/client");
+		clientRef.update({hanguyen: {first : 'Fred', last : 'Swanson'}});
+		console.log(clientRef.child('avaxnguyen'));
+	};
+	$scope.register = function(){
+		$state.goTo('register');
 	};
 	
 	$scope.loginGoogle = function(){
 		authManager.login('google');
 	};
+	
+	$scope.doRegister = function(){
+		var clientRef = new Firebase("https://fiery-fire-2200.firebaseio.com/client");
+		clientRef.update({first : 'Fred', last : 'Swanson'});
+	};
 })
+
+.controller('PollListCtrl', function($scope, $state, $stateParams, authManager, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
+	console.log('Hello Bao');
+	$scope.poll = {};
+	$scope.pollList = [{
+				title: "Best IDE",
+				type: true
+			},
+			{
+				title: "Dinner tonight",
+				type: false
+			}];
+	$scope.createNew = function(){
+		console.log($scope.poll.title);
+	};
+})
+
 .controller('TodoCtrl', function($scope, $state, $stateParams, $timeout, $ionicModal, Projects, $ionicSideMenuDelegate) {
 
   // A utility function for creating a new project

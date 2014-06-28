@@ -1,0 +1,31 @@
+<div class="modal">
+
+  <!-- Modal header bar -->
+  <ion-header-bar class="bar-secondary">
+    <h1 class="title">New Task</h1>
+    <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
+  </ion-header-bar>
+
+  <!-- Modal content area -->
+  <ion-content>
+
+    <form ng-submit="createNew()">
+      <div class="list">
+        <label class="item item-input item-stacked-label">
+          <span class="input-label">Poll Name</span>	
+          <input type="text" placeholder="What do you need to do?" ng-model="poll.title">
+        </label>
+        <label class="item item-input item-stacked-label toggle">
+          <span class="input-label">Poll Type</span>
+          <input type="checkbox" placeholder="Type" ng-model="poll.type">
+        </label>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive">Create Poll</button>
+      </div>
+    </form>
+
+  </ion-content>
+
+</div>
+

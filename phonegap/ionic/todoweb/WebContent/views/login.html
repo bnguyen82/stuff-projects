@@ -3,7 +3,8 @@
   <!-- Modal header bar -->
   <ion-header-bar class="bar-secondary">
     <h1 class="title">Sign in</h1>
-    <button class="button button-clear button-positive" ng-hide="" ng-click="logout()">Log Out</button> -
+    <button class="button button-clear button-positive" ng-hide="$scope.auth.authenticated" ng-click="logout()">Log Out</button> -
+    <button class="button button-clear button-positive" ng-hide="$scope.auth.authenticated" ng-click="register()">Register</button> -
   </ion-header-bar>
 
   <!-- Content area -->

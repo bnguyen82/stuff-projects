@@ -109,6 +109,7 @@ todoApp.factory('Projects', function() {
                provider: user.provider
             };
             updateScope($scope, 'auth', $scope.auth, function() {
+            	$location.path('/poll/list');
             	/*//baonht 
             	if( !($location.path()||'').match('/hearth') ) {
                   $location.path('/hearth');
