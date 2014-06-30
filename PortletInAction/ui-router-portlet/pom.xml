@@ -8,14 +8,13 @@
 	<name>poc-angular-portlet Portlet</name>
 	<version>6.2.0.0-SNAPSHOT</version>
 	<properties>
-		<liferay.version>6.2.0-ga1</liferay.version>
-		<liferay.maven.plugin.version>6.2.0-ga1</liferay.maven.plugin.version>
-		<liferay.maven.liferay.root>/home/sammso/development/liferay/6.2.0-GA1/liferay-portal-6.2.0-ce-ga1</liferay.maven.liferay.root>
-		<liferay.auto.deploy.dir>${liferay.maven.liferay.root}/deploy</liferay.auto.deploy.dir>
-		<liferay.app.server.deploy.dir>${liferay.maven.liferay.root}/tomcat-7.0.42/webapps</liferay.app.server.deploy.dir>
-		<liferay.app.server.lib.global.dir>${liferay.maven.liferay.root}/tomcat-7.0.42/lib/ext</liferay.app.server.lib.global.dir>
-		<liferay.app.server.portal.dir>${liferay.maven.liferay.root}/tomcat-7.0.42/webapps/ROOT</liferay.app.server.portal.dir>
-	</properties>	
+		<liferay.version>6.2.1</liferay.version>
+		<liferay.maven.plugin.version>6.2.10.6</liferay.maven.plugin.version>
+		<liferay.auto.deploy.dir>D:\Works\liferay-portal-6.2-ce-ga2\deploy</liferay.auto.deploy.dir>
+		<liferay.app.server.deploy.dir>D:\Works\liferay-portal-6.2-ce-ga2\tomcat-7.0.42\webapps</liferay.app.server.deploy.dir>
+		<liferay.app.server.lib.global.dir>D:\Works\liferay-portal-6.2-ce-ga2\tomcat-7.0.42\lib\ext</liferay.app.server.lib.global.dir>
+		<liferay.app.server.portal.dir>D:\Works\liferay-portal-6.2-ce-ga2\tomcat-7.0.42\webapps\ROOT</liferay.app.server.portal.dir>
+		<springframework.version>3.1.0.RELEASE</springframework.version>	</properties>	
 	<build>
 		<plugins>
 			<plugin>

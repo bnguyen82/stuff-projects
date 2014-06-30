@@ -315,6 +315,15 @@ public class EventLocalServiceWrapper implements EventLocalService,
             serviceContext);
     }
 
+    @Override
+    public java.util.List<com.nosester.portlet.eventlisting.model.Event> findByEventNameEventDescriptionLocationName(
+        java.lang.String eventName, java.lang.String eventDescription,
+        java.lang.String locationName, int begin, int end)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return _eventLocalService.findByEventNameEventDescriptionLocationName(eventName,
+            eventDescription, locationName, begin, end);
+    }
+
     /**
      * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
      */

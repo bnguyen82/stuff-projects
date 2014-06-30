@@ -304,6 +304,15 @@ public class EventLocalServiceUtil {
             year, hour, minute, locationId, serviceContext);
     }
 
+    public static java.util.List<com.nosester.portlet.eventlisting.model.Event> findByEventNameEventDescriptionLocationName(
+        java.lang.String eventName, java.lang.String eventDescription,
+        java.lang.String locationName, int begin, int end)
+        throws com.liferay.portal.kernel.exception.SystemException {
+        return getService()
+                   .findByEventNameEventDescriptionLocationName(eventName,
+            eventDescription, locationName, begin, end);
+    }
+
     public static void clearService() {
         _service = null;
     }

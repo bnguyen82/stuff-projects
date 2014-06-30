@@ -12,6 +12,7 @@ import com.liferay.portal.service.ServiceContext;
 import com.nosester.portlet.eventlisting.model.Event;
 import com.nosester.portlet.eventlisting.service.EventLocalServiceUtil;
 import com.nosester.portlet.eventlisting.service.base.EventLocalServiceBaseImpl;
+import com.nosester.portlet.eventlisting.service.persistence.EventFinderUtil;
 
 /**
  * The implementation of the event local service.
@@ -139,4 +140,11 @@ public class EventLocalServiceImpl extends EventLocalServiceBaseImpl {
 
 	    return event;
 	}	
+	public List<Event> findByEventNameEventDescriptionLocationName(String eventName,
+		    String eventDescription, String locationName, int begin, int end)
+		throws SystemException {
+
+	    return EventFinderUtil.findByEventNameEventDescriptionLocationName(
+	        eventName, eventDescription, locationName, begin, end);
+	}
 }
