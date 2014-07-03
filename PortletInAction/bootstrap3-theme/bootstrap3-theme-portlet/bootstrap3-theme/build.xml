@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+
+<project name="bootstrap3-theme" basedir="." default="deploy">
+	<import file="D:\Works\liferay-plugins-sdk-6.2\themes/build-common-theme.xml" />
+
+	<property name="theme.parent" value="_unstyled" />
+</project>
